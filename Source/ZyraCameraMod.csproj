@@ -12,13 +12,13 @@
     <Deterministic>true</Deterministic>
     <PathMap>$(MSBuildProjectDirectory)=/_/IsaiahCameraMod</PathMap>
     <GenerateDependencyFile>false</GenerateDependencyFile>
-    <EmbeddedCameraBundle>$(MSBuildProjectDirectory)\Resources\isaiahcamera</EmbeddedCameraBundle>
+    <EmbeddedCameraBundle>$(MSBuildProjectDirectory)\Resources\zyracamera</EmbeddedCameraBundle>
     <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Gorilla Tag</GameDir>
     <ManagedDir>$(GameDir)\Gorilla Tag_Data\Managed</ManagedDir>
     <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IsaiahCameraPlugin.cs" />
+    <Compile Include="ZyraCameraPlugin.cs" />
     <Compile Include="CameraModelControls.cs" />
     <Compile Include="CameraLobbyHop.cs" />
     <Compile Include="CameraCaptureCulling.cs" />
