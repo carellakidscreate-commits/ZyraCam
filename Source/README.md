@@ -1,6 +1,6 @@
 # IsaiahCameraMod 2.9.0
 
-Install only **plugins/IsaiahCameraMod.dll**. Close Gorilla Tag, back up and replace the existing IsaiahCameraMod DLL in BepInEx/plugins. Keep one installed version. Keep the existing configuration to retain all six presets and the selected slot. This delivery has not installed the DLL into the live game.
+Install only **plugins/ZyraCameraMod.dll**. Close Gorilla Tag, back up and replace the existing ZyraCameraMod DLL in BepInEx/plugins. Keep one installed version. Keep the existing configuration to retain all six presets and the selected slot. This delivery has not installed the DLL into the live game.
 
 - Tap A while visible: hide the tablet; capture continues.
 - Hold A for 0.3 seconds: enter Selfie and hold the tablet 0.5 m ahead of the live headset. Release: park it there. Pressing A while hidden recalls immediately.
@@ -13,7 +13,7 @@ The exact model, audio, glyphs and shaders remain embedded and byte-identical. A
 
 Source contains all 13 C# files, project and embedded bundle. With a .NET SDK and the existing Gorilla Tag/BepInEx 5 installation:
 
-    dotnet build IsaiahCameraMod.csproj -c Release -o release -p:UseSharedCompilation=false
+   dotnet build ZyraCameraMod.csproj -c Release -o release -p:UseSharedCompilation=false
 
 For another installation add -p:GameDir="D:\SteamLibrary\steamapps\common\Gorilla Tag". No Blender/Unity asset export is needed for these code fixes. Original import/export instructions are in Source/AssetBuild/README.md.
 
