@@ -130,8 +130,6 @@ Source/ZyraCameraMod.csproj
 
 The project requires a .NET SDK, compatible Gorilla Tag PC game assemblies, and BepInEx 5.
 
-Note: The current project configuration contains older source-file and asset-path references that must be corrected before a successful build can be confirmed.
-
 The public download is named ZyraCam.dll and labeled v1.0.0. The existing source project still uses the internal assembly name IsaiahCameraMod and version 2.9.0.
 
 These naming differences should be resolved or documented when publishing future releases. A reproducible build matching the public download has not been independently verified from this repository snapshot.
