@@ -21,9 +21,3 @@ These are verified sources of recurring work/allocations. Without a game profile
 - Time cache: 1,100 selection/mutation comparisons match 2.8 results. Actual compiled DLL benchmark, 100,000 repeated lookups: 2.8 = 197.007 ms / 208,000,000 allocated bytes; 2.9 cached = 10.813 ms / 0 bytes. This is a .NET CPU microbenchmark, **not gameplay FPS, Unity frame-time or GPU measurement**.
 - Regression: 65 selectable controls, all 36 RGB directions and aliases, 13 color groups, independent lens holder, FOV/clipping/smoothness, More/Colors, roll lock, FP position/rotation stabilization, all confirmations, desktop output recovery and centralized audio dispatch pass synthetic checks. Six slots plus selected slot survive real BepInEx test-config reloads. User config was not overwritten.
 - NETWORK: source unchanged; compiled full/compact packet codecs and malformed inputs pass. Unity in-memory old/new-peer, appearance, heartbeat and OFF cleanup tests pass; no duplicate bodies. Existing UI/network benchmarks rerun. No real Photon traffic or live lobby hop was executed.
-
-## Still needs live verification
-
-Test tap/hold/release and buttons in VR; TP/Follow screen and PC preview; walking/jumping/climbing/maps with NETWORK OFF/ON; time/rain and map activation; other modded peers and real public/private lobby transitions. Compare game profiler frame-time spikes before/after. Editor tests do not establish live FPS, actual controller feel, audible click quality or compatibility with other installed mods.
-
-All reports in Validation are from this verification run except unchanged asset provenance carried in Source/AssetBuild. No model asset rebuild, rendering resolution change, network rate change or preset migration was made.
