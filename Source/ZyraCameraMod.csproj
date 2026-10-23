@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>IsaiahCameraMod</AssemblyName>
+    <Version>2.9.0</Version>
+    <RootNamespace>IsaiahCameraMod</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <!-- One installable DLL: debugging symbols and assets are embedded; no
+         camera-specific dependencies, extraction step or .deps.json to ship. -->
+    <DebugType>embedded</DebugType>
+    <Deterministic>true</Deterministic>
+    <PathMap>$(MSBuildProjectDirectory)=/_/IsaiahCameraMod</PathMap>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <EmbeddedCameraBundle>$(MSBuildProjectDirectory)\Resources\isaiahcamera</EmbeddedCameraBundle>
+    <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Gorilla Tag</GameDir>
+    <ManagedDir>$(GameDir)\Gorilla Tag_Data\Managed</ManagedDir>
+    <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="IsaiahCameraPlugin.cs" />
+    <Compile Include="CameraModelControls.cs" />
+    <Compile Include="CameraLobbyHop.cs" />
+    <Compile Include="CameraCaptureCulling.cs" />
+    <Compile Include="CameraButtonAudio.cs" />
+    <Compile Include="CameraPreferences.cs" />
+    <Compile Include="CameraMotion.cs" />
+    <Compile Include="CameraPresets.cs" />
+    <Compile Include="CameraNetwork.cs" />
+    <Compile Include="CameraPanels.cs" />
+    <Compile Include="CameraLocalTime.cs" />
+    <Compile Include="CameraEnvironment.cs" />
+    <Compile Include="EmbeddedCameraAssets.cs" />
+    <EmbeddedResource Include="$(EmbeddedCameraBundle)" LogicalName="IsaiahCameraMod.Assets.isaiahcamera" />
+    <Reference Include="BepInEx"><HintPath>$(GameDir)\BepInEx\core\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule"><HintPath>$(ManagedDir)\UnityEngine.ParticleSystemModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Photon3Unity3D"><HintPath>$(ManagedDir)\Photon3Unity3D.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PhotonRealtime"><HintPath>$(ManagedDir)\PhotonRealtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PhotonUnityNetworking"><HintPath>$(ManagedDir)\PhotonUnityNetworking.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Assembly-CSharp"><HintPath>$(ManagedDir)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(ManagedDir)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(ManagedDir)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AssetBundleModule"><HintPath>$(ManagedDir)\UnityEngine.AssetBundleModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.PhysicsModule"><HintPath>$(ManagedDir)\UnityEngine.PhysicsModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AudioModule"><HintPath>$(ManagedDir)\UnityEngine.AudioModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(ManagedDir)\UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.XRModule"><HintPath>$(ManagedDir)\UnityEngine.XRModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.VRModule"><HintPath>$(ManagedDir)\UnityEngine.VRModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.SubsystemsModule"><HintPath>$(ManagedDir)\UnityEngine.SubsystemsModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime"><HintPath>$(ManagedDir)\Unity.RenderPipelines.Universal.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime"><HintPath>$(ManagedDir)\Unity.RenderPipelines.Core.Runtime.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <Target Name="RequireEmbeddedCameraAssets" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('$(EmbeddedCameraBundle)')" Text="Single-DLL build requires Resources/isaiahcamera as a build input. Build the exact model in CameraBundleProject, copy its Build/isaiahcamera into Resources, then rebuild this DLL. Never distribute a separate runtime bundle." />
+  </Target>
+</Project>
